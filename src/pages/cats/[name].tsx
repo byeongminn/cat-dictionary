@@ -1,7 +1,6 @@
 import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
-import styled from 'styled-components';
 
 interface Cat {
   name: string;
@@ -64,8 +63,8 @@ export async function getStaticProps({ params }: { params: { name: string } }) {
 export default function Cat({ cat }: Props) {
   if (!cat) {
     return (
-      <Container>
-        <ImageWrapper>
+      <div>
+        <div className="mx-auto mb-8 relative aspect-video w-full">
           <Image
             src="/assets/cat.webp"
             alt="cat"
@@ -73,11 +72,11 @@ export default function Cat({ cat }: Props) {
             priority
             style={{ objectFit: 'cover' }}
           />
-        </ImageWrapper>
-        <ContentWrapper>
-          <Empty>정보가 없습니다.</Empty>
-        </ContentWrapper>
-      </Container>
+        </div>
+        <div className="flex flex-col gap-y-4">
+          <p className="text-center">정보가 없습니다.</p>
+        </div>
+      </div>
     );
   }
 
@@ -85,8 +84,8 @@ export default function Cat({ cat }: Props) {
     cat;
 
   return (
-    <Container>
-      <ImageWrapper>
+    <div>
+      <div className="mx-auto mb-8 relative aspect-video w-full">
         <Image
           src={image.url || '/assets/cat.webp'}
           alt={name}
@@ -94,41 +93,20 @@ export default function Cat({ cat }: Props) {
           priority
           style={{ objectFit: 'cover' }}
         />
-      </ImageWrapper>
-      <ContentWrapper>
+      </div>
+      <div className="flex flex-col gap-y-4">
         <p>Name: {name}</p>
         <p>Origin: {origin}</p>
         <p>Life span: {life_span}</p>
         <p>Weight: {weight?.metric}</p>
         <p>Description: {description}</p>
         <p>
-          Wikipedia: <Link href={wikipedia_url}>Look up with Wikipedia</Link>
+          Wikipedia:{' '}
+          <Link href={wikipedia_url} className="text-blue-500">
+            Look up with Wikipedia
+          </Link>
         </p>
-      </ContentWrapper>
-    </Container>
+      </div>
+    </div>
   );
 }
-
-const Container = styled.div``;
-
-const ImageWrapper = styled.div`
-  margin: 0 auto;
-  margin-bottom: 2rem;
-  position: relative;
-  aspect-ratio: 4/3;
-  width: 31.25rem;
-
-  @media ${({ theme }) => theme.mobile} {
-    width: 100%;
-  }
-`;
-
-const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-`;
-
-const Empty = styled.p`
-  text-align: center;
-`;

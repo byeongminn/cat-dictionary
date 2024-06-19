@@ -1,7 +1,6 @@
 import { Card } from '@/components';
 import axios from 'axios';
 import Link from 'next/link';
-import styled from 'styled-components';
 
 interface Cat {
   id: string;
@@ -33,35 +32,14 @@ export async function getStaticProps() {
 
 export default function Home({ cats }: Props) {
   return (
-    <Container>
-      <CatList>
+    <>
+      <div className="grid gap-6 justify-center grid-cols-card-1 md:grid-cols-card-2 lg:grid-cols-card-3">
         {cats.map(({ id, image, name }) => (
-          <Cat key={id}>
-            <Link href={`/cats/${name}`}>
-              <Card imgUrl={image?.url || '/assets/cat.webp'} name={name} />
-            </Link>
-          </Cat>
+          <Link href={`/cats/${name}`} key={id}>
+            <Card imgUrl={image?.url || '/assets/cat.webp'} name={name} />
+          </Link>
         ))}
-      </CatList>
-    </Container>
+      </div>
+    </>
   );
 }
-
-const Container = styled.div``;
-
-const CatList = styled.ul`
-  display: grid;
-  grid-gap: 1.5rem;
-  justify-content: center;
-  grid-template-columns: repeat(3, 18.75rem);
-
-  @media ${({ theme }) => theme.laptop} {
-    grid-template-columns: repeat(2, 18.75rem);
-  }
-
-  @media ${({ theme }) => theme.tablet} {
-    grid-template-columns: 18.75rem;
-  }
-`;
-
-const Cat = styled.li``;

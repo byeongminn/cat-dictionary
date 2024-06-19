@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import styled from 'styled-components';
 
 interface Props {
   imgUrl: string;
@@ -8,43 +7,23 @@ interface Props {
   height?: number;
 }
 
-export const Card = ({ imgUrl, width = 300, height = 200, name }: Props) => {
+export const Card = ({ imgUrl, width = 300, height = 225, name }: Props) => {
   return (
-    <Container>
-      <CardImage
-        src={imgUrl}
-        alt={name}
-        width={width}
-        height={height}
-        priority
-      />
-      <Name>{name}</Name>
-    </Container>
+    <>
+      <div className="flex flex-col items-center rounded-lg shadow-lg transition-transform hover:-translate-y-2">
+        <Image
+          style={{ width: '100%', aspectRatio: '4/3' }}
+          className="rounded-t-lg object-cover"
+          src={imgUrl}
+          alt={name}
+          width={width}
+          height={height}
+          priority
+        />
+        <h1 className="font-semibold text-xl leading-10 text-gray-900">
+          {name}
+        </h1>
+      </div>
+    </>
   );
 };
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 0.5rem;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s;
-
-  &:hover {
-    transform: translateY(-0.5rem);
-  }
-`;
-
-const CardImage = styled(Image)`
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-  object-fit: cover;
-`;
-
-const Name = styled.h1`
-  font-weight: 600;
-  font-size: 1.25rem;
-  line-height: 2.5rem;
-  color: #191919;
-`;

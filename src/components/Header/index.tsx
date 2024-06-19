@@ -1,23 +1,13 @@
 import { useRouter } from 'next/router';
-import styled from 'styled-components';
 
 export const Header = () => {
   const { query } = useRouter();
 
   return (
-    <Container>
-      <Title>{query.name || 'CATS'}</Title>
-    </Container>
+    <div className="mb-4 py-8">
+      <h1 className="font-semibold text-5xl text-center">
+        {query.name || 'CATS'}
+      </h1>
+    </div>
   );
 };
-
-const Container = styled.div`
-  margin-bottom: 1rem;
-  padding-block: 2rem;
-`;
-
-const Title = styled.h1`
-  font-size: 3rem;
-  font-weight: 600;
-  text-align: center;
-`;
