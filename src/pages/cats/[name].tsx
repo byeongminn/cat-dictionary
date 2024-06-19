@@ -117,6 +117,10 @@ const ImageWrapper = styled.div`
   position: relative;
   aspect-ratio: 4/3;
   width: 31.25rem;
+
+  @media ${({ theme }) => theme.mobile} {
+    width: 100%;
+  }
 `;
 
 const ContentWrapper = styled.div`

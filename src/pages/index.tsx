@@ -54,6 +54,14 @@ const CatList = styled.ul`
   grid-gap: 1.5rem;
   justify-content: center;
   grid-template-columns: repeat(3, 18.75rem);
+
+  @media ${({ theme }) => theme.laptop} {
+    grid-template-columns: repeat(2, 18.75rem);
+  }
+
+  @media ${({ theme }) => theme.tablet} {
+    grid-template-columns: 18.75rem;
+  }
 `;
 
 const Cat = styled.li``;
