@@ -16,3 +16,39 @@ Tailwind CSS는 Utility-First를 지향하는 CSS 프레임워크입니다. 여
 - ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=TailwindCSS&logoColor=ffffff)
 
 <br />
+
+## Getting Started
+1. Clone the repo
+   ```
+   git clone https://github.com/byeongminn/cat-dictionary.git
+   ```
+2. Install NPM packages
+   ```
+   npm install
+   ```
+3. Start the project
+   ```
+   npm run start
+   ```
+
+<br />
+
+## Usage
+### [고양이 목록]
+- 고양이 목록이 표출됩니다.
+- 고양이 클릭 시 상세 페이지로 이동합니다.
+
+|Desktop|Mobile|
+|--------|--------|
+|<img width="500" alt="cats" src="https://github.com/byeongminn/cat-dictionary/assets/74594510/a6e5ab8b-c144-40a4-97d9-b2d70d830a82">|<img width="300" alt="cats" src="https://github.com/byeongminn/cat-dictionary/assets/74594510/7eb608d7-b8ac-44d7-a367-1b63d6a3aa02">|
+
+<br />
+
+### [고양이 상세]
+- 고양이 상세 정보가 표출됩니다.
+
+|Desktop|Mobile|
+|--------|--------|
+|<img width="500" alt="cat" src="https://github.com/byeongminn/cat-dictionary/assets/74594510/925e5027-8f2b-4369-856f-5e91ecf8655b">|<img width="300" alt="cat" src="https://github.com/byeongminn/cat-dictionary/assets/74594510/743083bc-b13d-4b65-acf2-ea9e28e93ad6">|
+
+<br />
